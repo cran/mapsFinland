@@ -1,0 +1,17 @@
+a51368d27ece596febafd6ff146c9362 *DESCRIPTION
+dc21c19f0d6968ee25d441b2cf46017d *NAMESPACE
+37f9f2572dc18930107ec786fef89e50 *R/data.R
+ca35c56c0c379f292f8fab68b3a19f61 *R/import_packages.R
+77e2e385e6a4238005efa6f765002916 *data/Alueluokat_ja_kuntanumerot_2019.rda
+77f9b5b981f1f008a7dd3931eb1f4e05 *data/datalist
+fc8443e7fe8d6ebdd96dd39b92cefed1 *data/kunnat2019.rda
+550a40bae701ede8edc97285a57fd6ff *data/maakunta2019.rda
+815fc0a7cbb0c66c96fe7d65766af441 *data/seutukunnat2019.rda
+7f93740cb38ec0ac7c3e1db9d54b1e84 *data/suuralue2019.rda
+a57889d72ba7e75f64315818a1fd32c5 *data/tyossakayntialue2019.rda
+feb07ff6ede4fad8b7866a3fd7628713 *man/Alueluokat_ja_kuntanumerot_2019.Rd
+ec5c114f9b2359fe3a3ac2fbb8678622 *man/kunnat2019.Rd
+115b9465131ec4efc51c2bc7c370aad3 *man/maakunta2019.Rd
+5c530783adec3a25e362e5699d4e2c5b *man/seutukunnat2019.Rd
+1c73bf9e03f369d86a4275b0a19b4f73 *man/suuralue2019.Rd
+e514a1692ce0ccf32c8fcc4725aacdbd *man/tyossakayntialue2019.Rd

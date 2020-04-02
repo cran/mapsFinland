@@ -99,3 +99,60 @@
 #' }
 #' @source <http://tilastokeskus.fi/meta/luokitukset/index_alue.html>
 "Alueluokat_ja_kuntanumerot_2019"
+#' @title A data set containing map of Finland with hospital district (sairaanhoitopiiri) boundaries
+#' @description A data set containing map of Finland with hospital district (sairaanhoitopiiri) boundaries
+#'
+#' @format A data frame with map boundaries:
+#' \describe{
+#'   \item{ sp_name}{ Name of hospital district}
+#'   \item{ sp_code }{ Code of hospital district}
+#'   \item{geom}{Map polygon}
+#' }
+#' @source <http://geo.stat.fi/geoserver/>
+"SHP2019"
+#'
+#' @title A data set containing map of Finland with ERVA (erityisvastuualue) boundaries
+#' @description A data set containing map of Finland with ERVA (erityisvastuualue) boundaries
+#'
+#' @format A data frame with map boundaries:
+#' \describe{
+#'   \item{ erva_name}{ Name of erityisvastuualue district}
+#'   \item{ erva_code }{ Code of erityisvastuualue district}
+#'   \item{geom}{Map polygon}
+#' }
+#' @source <http://geo.stat.fi/geoserver/>
+"erva2019"
+#'
+#' @title A data set containing map of Finland with urbanisation category boundaries
+#' @description A data set containing map of Finland with with urbanisation category boundaries
+#'
+#' @examples
+#' \dontrun{
+#' library(ggplot2)
+#' ggplot(taajama2019) +geom_sf(aes(fill = kr_name))+
+#' labs(fill = "Kaupunkimaisuus")+
+#'   theme(legend.title = element_text(size = 6),legend.text = element_text(size=6),
+#'   legend.key.size = unit(10, "pt"),legend.key.width = unit(4,"pt"),
+#'   legend.key.height = unit(4,"pt"),
+#'    legend.position = c(0.22,0.52))
+#'    }
+#' @format A data frame with map boundaries:
+#' \describe{
+#'   \item{ kr_name}{ Name of urbanisation category}
+#'   \item{ kr_code }{ Code of urbanisation category}
+#'   \item{geom}{Map polygon}
+#' }
+#' @source <http://geo.stat.fi/geoserver/>
+"taajama2019"
+#'
+#' @title A data set containing map of Finland with voting district (vaalipiiri) boundaries
+#' @description A data set containing map of Finland with voting district (vaalipiiri) boundaries
+#'
+#' @format A data frame with map boundaries:
+#' \describe{
+#'   \item{ va_name}{ Name of eurbanisation category}
+#'   \item{ va_code }{ Code of eurbanisation category}
+#'   \item{geom}{Map polygon}
+#' }
+#' @source <http://geo.stat.fi/geoserver/>
+"vaalipiiri2019"

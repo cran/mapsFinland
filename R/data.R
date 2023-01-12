@@ -1,3 +1,28 @@
+#'
+#' Make map of Finland
+#'
+#' @param url code value (character)
+#' @return sf object
+#' @note url must contain WSF Shapefile. Check available maps from http://geo.stat.fi/geoserver/web/
+#' @export
+#' @examples
+#' hv.alueet<-mkMapFinland("https://tinyurl.com/hvalueet2022")
+#' require(ggplot2)
+#' ggplot(hv.alueet) +geom_sf()+ggtitle("Wellbeing services counties")
+mkMapFinland<-function(url)
+{
+  lv.temp <- tempfile()
+  lv.tempd <- tempdir()
+  utils::download.file(url=url,lv.temp, mode="wb")
+  utils::unzip(lv.temp,exdir = lv.tempd)
+  lv.1<-rgdal::readOGR(dsn=lv.tempd)
+  lv.1<-sf::st_as_sf(lv.1)
+  names(lv.1)<-tolower(names(lv.1))
+  lv.1$nimi<-stringi::stri_enc_toascii(lv.1$nimi)
+  lv.1$namn<-stringi::stri_enc_toascii(lv.1$namn)
+  lv.1$name<-stringi::stri_enc_toascii(lv.1$name)
+  lv.1
+}
 #' @title Map of Finland with district (seutukunta) boundaries
 #'
 #' @description A data set containing map of Finland with district (seutukunta) boundaries
@@ -97,7 +122,7 @@
 #'   \item{ Kuntamuotokoodi}{Kuntamuotokoodi}
 #'   \item{ Kuntamuoto}{Kuntamuoto}
 #' }
-#' @source <http://tilastokeskus.fi/meta/luokitukset/index_alue.html>
+#' @source <http://geo.stat.fi/geoserver/>
 "Alueluokat_ja_kuntanumerot_2019"
 #' @title A data set containing map of Finland with hospital district (sairaanhoitopiiri) boundaries
 #' @description A data set containing map of Finland with hospital district (sairaanhoitopiiri) boundaries
@@ -150,8 +175,8 @@
 #'
 #' @format A data frame with map boundaries:
 #' \describe{
-#'   \item{ va_name}{ Name of eurbanisation category}
-#'   \item{ va_code }{ Code of eurbanisation category}
+#'   \item{ va_name}{ Name of voting district (vaalipiiri)}
+#'   \item{ va_code }{ Code of voting district (vaalipiiri)}
 #'   \item{geom}{Map polygon}
 #' }
 #' @source <http://geo.stat.fi/geoserver/>

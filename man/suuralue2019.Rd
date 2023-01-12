@@ -4,7 +4,8 @@
 \name{suuralue2019}
 \alias{suuralue2019}
 \title{A data set containing map of Finland with regiona (suuralue) boundaries}
-\format{A data frame with map boundaries:
+\format{
+A data frame with map boundaries:
 \describe{
 \item{ vuosi}{ Year }
 \item{ suuralue}{ Code }
@@ -12,7 +13,8 @@
 \item{ namn}{ Name in Swedish}
 \item{ name }{ Name in English}
 \item{geometry}{Map polygon}
-}}
+}
+}
 \source{
 \url{http://geo.stat.fi/geoserver/}
 }

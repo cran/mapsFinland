@@ -4,12 +4,14 @@
 \name{SHP2019}
 \alias{SHP2019}
 \title{A data set containing map of Finland with hospital district (sairaanhoitopiiri) boundaries}
-\format{A data frame with map boundaries:
+\format{
+A data frame with map boundaries:
 \describe{
 \item{ sp_name}{ Name of hospital district}
 \item{ sp_code }{ Code of hospital district}
 \item{geom}{Map polygon}
-}}
+}
+}
 \source{
 \url{http://geo.stat.fi/geoserver/}
 }

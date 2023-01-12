@@ -4,7 +4,8 @@
 \name{Alueluokat_ja_kuntanumerot_2019}
 \alias{Alueluokat_ja_kuntanumerot_2019}
 \title{A data set containing area codes}
-\format{A data frame :
+\format{
+A data frame :
 \describe{
 \item{ Kuntanumero}{Kuntanumero}
 \item{ Kunnannimi}{Kunnannimi}
@@ -24,9 +25,10 @@
 \item{ Seutukunnannimi}{Seutukunnannimi}
 \item{ Kuntamuotokoodi}{Kuntamuotokoodi}
 \item{ Kuntamuoto}{Kuntamuoto}
-}}
+}
+}
 \source{
-\url{http://tilastokeskus.fi/meta/luokitukset/index_alue.html}
+\url{http://geo.stat.fi/geoserver/}
 }
 \usage{
 Alueluokat_ja_kuntanumerot_2019

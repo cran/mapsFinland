@@ -4,12 +4,14 @@
 \name{taajama2019}
 \alias{taajama2019}
 \title{A data set containing map of Finland with urbanisation category boundaries}
-\format{A data frame with map boundaries:
+\format{
+A data frame with map boundaries:
 \describe{
 \item{ kr_name}{ Name of urbanisation category}
 \item{ kr_code }{ Code of urbanisation category}
 \item{geom}{Map polygon}
-}}
+}
+}
 \source{
 \url{http://geo.stat.fi/geoserver/}
 }

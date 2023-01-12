@@ -4,12 +4,14 @@
 \name{erva2019}
 \alias{erva2019}
 \title{A data set containing map of Finland with ERVA (erityisvastuualue) boundaries}
-\format{A data frame with map boundaries:
+\format{
+A data frame with map boundaries:
 \describe{
 \item{ erva_name}{ Name of erityisvastuualue district}
 \item{ erva_code }{ Code of erityisvastuualue district}
 \item{geom}{Map polygon}
-}}
+}
+}
 \source{
 \url{http://geo.stat.fi/geoserver/}
 }

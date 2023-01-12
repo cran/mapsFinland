@@ -4,7 +4,8 @@
 \name{kunnat2019}
 \alias{kunnat2019}
 \title{Map of Finland with parishes (kunta) boundaries}
-\format{A data frame with map boundaries:
+\format{
+A data frame with map boundaries:
 \describe{
 \item{ vuosi}{ Year }
 \item{ kunta}{ Code }
@@ -12,7 +13,8 @@
 \item{ namn}{ Name in Swedish}
 \item{ name }{ Name in English}
 \item{geometry}{Map polygon}
-}}
+}
+}
 \source{
 \url{http://geo.stat.fi/geoserver/}
 }

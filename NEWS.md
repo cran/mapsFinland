@@ -1,3 +1,3 @@
-# mapsFinland  0.2.0
+# mapsFinland  0.2.1
 
-* Added function mkMapsFinland for making maps
+* Bug in mkMapsFinland corrected

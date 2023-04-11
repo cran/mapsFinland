@@ -1,30 +1,55 @@
 #'
 #' Make map of Finland
 #'
-#' @param url code value (character)
+#' @param url url of shapefile (character)
+#' @param dir folder of shape file (character)
 #' @return sf object
 #' @note url must contain WSF Shapefile. Check available maps from http://geo.stat.fi/geoserver/web/
 #' @export
 #' @examples
-#' hv.alueet<-mkMapFinland("https://tinyurl.com/hvalueet2022")
+#' hv.alueet<-mkMapFinland(url="https://tinyurl.com/hvalueet2022")
 #' require(ggplot2)
 #' ggplot(hv.alueet) +geom_sf()+ggtitle("Wellbeing services counties")
-mkMapFinland<-function(url)
+mkMapFinland<-function(url,dir)
 {
   lv.temp <- tempfile()
   lv.tempd <- tempdir()
-  lv.dir<-paste0(lv.tempd,"/lvfinmapddir")
-  utils::download.file(url=url,lv.temp, mode="wb")
-  utils::unzip(lv.temp,exdir = lv.dir)
-  lv.1<-rgdal::readOGR(dsn=lv.dir)
-  unlink(lv.dir,recursive = TRUE)
-  lv.1<-sf::st_as_sf(lv.1)
-  names(lv.1)<-tolower(names(lv.1))
-  lv.1$nimi<-stringi::stri_enc_toascii(lv.1$nimi)
-  lv.1$namn<-stringi::stri_enc_toascii(lv.1$namn)
-  lv.1$name<-stringi::stri_enc_toascii(lv.1$name)
+  if(missing(dir)){
+    lv.dir<-paste0(lv.tempd,"/lvfinmapddir")
+
+    utils::download.file(url=url,lv.temp, mode="wb")
+    utils::unzip(lv.temp,exdir = lv.dir)
+    lv.1<-sf::st_read(dsn=lv.dir, quiet=TRUE)
+    unlink(lv.dir,recursive = TRUE)
+    names(lv.1)<-tolower(names(lv.1))
+  }
+  else{
+    lv.1<-sf::st_read(dsn=dir, quiet=TRUE)
+    names(lv.1)<-tolower(names(lv.1))
+
+  }
+  # lv.1$nimi<-stringi::stri_enc_toascii(lv.1$nimi)
+  # lv.1$namn<-stringi::stri_enc_toascii(lv.1$namn)
+  # lv.1$name<-stringi::stri_enc_toascii(lv.1$name)
   lv.1
 }
+
+#' @title Map of Finland with welfare counties (hyvinvointialueet) boundaries
+#'
+#' @description A data set containing map of Finland with welfare counties (hyvinvointialueet) boundaries
+#'
+#' @format A data frame with map boundaries:
+#' \describe{
+#'   \item{ vuosi}{ Year }
+#'   \item{ hyvinvoint}{ Code }
+#'   \item{ nimi}{ Name in Finnish}
+#'   \item{ namn}{ Name in Swedish}
+#'   \item{ name }{ Name in English}
+#'   \item{geometry}{Map polygon}
+#' }
+#' @source <http://geo.stat.fi/geoserver/>
+"hyvinvointialueet2023"
+
 #' @title Map of Finland with district (seutukunta) boundaries
 #'
 #' @description A data set containing map of Finland with district (seutukunta) boundaries
@@ -66,6 +91,19 @@ mkMapFinland<-function(url)
 #'   \item{ nimi}{ Name in Finnish}
 #'   \item{ namn}{ Name in Swedish}
 #'   \item{ name }{ Name in English}
+#'   \item{  til_vuosi }{ til_vuosi}
+#'   \item{ vaesto  }{ vaesto}
+#'   \item{  vaesto_p }{vaesto_p }
+#'   \item{   miehet}{ miehet}
+#'   \item{  miehet_p }{ miehet_p}
+#'   \item{  naiset }{naiset }
+#'   \item{  naiset_p }{ naiset_p}
+#'   \item{  ika_0_14 }{ ika_0_14}
+#'   \item{   ika_0_14p}{ ika_0_14p}
+#'   \item{  ika_15_64 }{ ika_15_64}
+#'   \item{  ika_15_64p }{ ika_15_64p}
+#'   \item{  ika_65_ }{ ika_65_}
+#'   \item{   ika_65_p}{ ika_65_p}
 #'   \item{geometry}{Map polygon}
 #' }
 #' @source <http://geo.stat.fi/geoserver/>
@@ -81,6 +119,19 @@ mkMapFinland<-function(url)
 #'   \item{ nimi}{ Name in Finnish}
 #'   \item{ namn}{ Name in Swedish}
 #'   \item{ name }{ Name in English}
+#'   \item{  til_vuosi }{ til_vuosi}
+#'   \item{ vaesto  }{ vaesto}
+#'   \item{  vaesto_p }{vaesto_p }
+#'   \item{   miehet}{ miehet}
+#'   \item{  miehet_p }{ miehet_p}
+#'   \item{  naiset }{naiset }
+#'   \item{  naiset_p }{ naiset_p}
+#'   \item{  ika_0_14 }{ ika_0_14}
+#'   \item{   ika_0_14p}{ ika_0_14p}
+#'   \item{  ika_15_64 }{ ika_15_64}
+#'   \item{  ika_15_64p }{ ika_15_64p}
+#'   \item{  ika_65_ }{ ika_65_}
+#'   \item{   ika_65_p}{ ika_65_p}
 #'   \item{geometry}{Map polygon}
 #' }
 #' @source <http://geo.stat.fi/geoserver/>
@@ -172,14 +223,17 @@ mkMapFinland<-function(url)
 #' @source <http://geo.stat.fi/geoserver/>
 "taajama2019"
 #'
-#' @title A data set containing map of Finland with voting district (vaalipiiri) boundaries
+#' @title A data set containing map of Finland with voting district (vaalipiiri) boundaries on 2019
 #' @description A data set containing map of Finland with voting district (vaalipiiri) boundaries
 #'
 #' @format A data frame with map boundaries:
 #' \describe{
-#'   \item{ va_name}{ Name of voting district (vaalipiiri)}
-#'   \item{ va_code }{ Code of voting district (vaalipiiri)}
-#'   \item{geom}{Map polygon}
+#'   \item{ vaalipiiri}{ Name of voting district (vaalipiiri)}
+#'   \item{ vuosi }{ Year}
+#'   \item{ nimi }{ nimi}
+#'   \item{ namn }{ namn}
+#'   \item{ name }{ name}
+#'   \item{geometry}{Map polygon}
 #' }
 #' @source <http://geo.stat.fi/geoserver/>
 "vaalipiiri2019"

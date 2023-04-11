@@ -4,10 +4,12 @@
 \alias{mkMapFinland}
 \title{Make map of Finland}
 \usage{
-mkMapFinland(url)
+mkMapFinland(url, dir)
 }
 \arguments{
-\item{url}{code value (character)}
+\item{url}{url of shapefile (character)}
+
+\item{dir}{folder of shape file (character)}
 }
 \value{
 sf object
@@ -19,7 +21,7 @@ Make map of Finland
 url must contain WSF Shapefile. Check available maps from http://geo.stat.fi/geoserver/web/
 }
 \examples{
-hv.alueet<-mkMapFinland("https://tinyurl.com/hvalueet2022")
+hv.alueet<-mkMapFinland(url="https://tinyurl.com/hvalueet2022")
 require(ggplot2)
 ggplot(hv.alueet) +geom_sf()+ggtitle("Wellbeing services counties")
 }

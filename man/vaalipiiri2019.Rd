@@ -3,13 +3,16 @@
 \docType{data}
 \name{vaalipiiri2019}
 \alias{vaalipiiri2019}
-\title{A data set containing map of Finland with voting district (vaalipiiri) boundaries}
+\title{A data set containing map of Finland with voting district (vaalipiiri) boundaries on 2019}
 \format{
 A data frame with map boundaries:
 \describe{
-\item{ va_name}{ Name of voting district (vaalipiiri)}
-\item{ va_code }{ Code of voting district (vaalipiiri)}
-\item{geom}{Map polygon}
+\item{ vaalipiiri}{ Name of voting district (vaalipiiri)}
+\item{ vuosi }{ Year}
+\item{ nimi }{ nimi}
+\item{ namn }{ namn}
+\item{ name }{ name}
+\item{geometry}{Map polygon}
 }
 }
 \source{
